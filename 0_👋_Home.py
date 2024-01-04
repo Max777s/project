@@ -15,7 +15,7 @@ with st.sidebar:
     st.header("Introduction to Programming Languages for Data")
     st.write(" A quick blink on my first Github project")
     st.write("***Final Project - Dec 2023***")
-    st.write("**Author:** Oussama AMDOUNI")
+    st.write("**Author:Oussama AMDOUNI")
     st.write("**Instructor:** [Enric Domingo](https://github.com/enricd)")
 
 
