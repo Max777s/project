@@ -51,19 +51,20 @@ st.subheader("About Me")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 I am a <Current Role and/or Studies> 
+- 🧑‍💻 I am a Master student Big Data & analytics at EAE Business school in Barcelona .
 
-- 🛩️ prev: <Previous Experience, Background or Studies>
+- 🛩️ prev: Aviator , Air Traffic & ressource management and a Consulatant
 
-- ❤️ <Your Passion and/or Interests>
+- ❤️ FSX enthusiast and learning what others can not do .
 
-- 🤖 <Your Personal Projects>
+- 🤖 Switching from Aviation to IT field is a Big step but interesting , as i am interested in the things i don't understand.
 
-- 🏂 <Your Hobbies>
+- 🏂 DJ'ing , Playing Music , Running ( preparing for Marathon) , Crossfit , Bootcamps , Ice bathing , Travelling.
 
-- 📫 How to reach me: <Your Email>
+- 📫 How to reach me: oussamamdouni@gmail.com 
 
 - 🏠 Barcelona
 """)
 
-# Feel free to add other points like your Linkedin, Github, Social Media, etc.
+Linkedin  :https://www.linkedin.com/in/oussamaamdouni/ 
+IG        :  That_av_dude 
