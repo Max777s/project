@@ -39,27 +39,50 @@ st.write(f"""
 
 
 # ----- Personal title or short description -----
-current_role = "Current Role and/or Studies or Description"   # TODO: Change this
+current_role = 
+
+st.write("""
+- 👨‍💻 Currently working on my Master's project in Big Data & Analytics at EAE Business School.
+- ✈️ Former Aviator with experience in Air Traffic & Resource Management.
+- 🤖 Exploring the transition from Aviation to the IT field, focusing on areas I find interesting.
+- ...
+""")
+"  
 
 st.write(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""", unsafe_allow_html=True)
 
-st.write("##")    # Adding some space
+st.write("##")    #
 
 
 # ----- About me section -----
-st.subheader("About Me")
+st.subheader("st.subheader("Skills")
+
+st.write("""
+- Python
+- Data Analysis
+- Machine Learning
+- ...
+""")
+")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 I am a Master student Big Data & analytics at EAE Business school in Barcelona .
+st.subheader("Projects")
 
-- 🛩️ prev: Aviator , Air Traffic & ressource management and a Consulatant
+st.write("""
+- 🚀 [Project Name 1](link_to_project1): Brief description.
+- 🌐 [Project Name 2](link_to_project2): Brief description.
+- ...
+""")
 
-- ❤️ FSX enthusiast and learning what others can not do .
+st.subheader("Education")
 
-- 🤖 Switching from Aviation to IT field is a Big step but interesting , as i am interested in the things i don't understand.
+st.write("""
+- 📚 Master's in Big Data & Analytics, EAE Business School, Barcelona
+- ✈️ Previous education or certifications
+- ...
+""")
 
-- 🏂 DJ'ing , Playing Music , Running ( preparing for Marathon) , Crossfit , Bootcamps , Ice bathing , Travelling.
 
 - 📫 How to reach me: oussamamdouni@gmail.com 
 
