@@ -24,7 +24,7 @@ st.write(f"""<div style="text-align: center;"><h1 style="text-align: center;">�
 
 
 # ----- Profile image file -----
-profile_image_file_path = "9f95d665-a4ea-4286-834e-30aab3f4f89d.JPG"       # TODO: Upload your profile image to the same folder as this script and update this if it has a different name
+profile_image_file_path = "selfie.jpeg"       # TODO: Upload your profile image to the same folder as this script and update this if it has a different name
 
 with open(profile_image_file_path, "rb") as img_file:
     img = "data:image/png;base64," + base64.b64encode(img_file.read()).decode()
@@ -39,15 +39,13 @@ st.write(f"""
 
 
 # ----- Personal title or short description -----
-current_role = 
+current_role="Master Big Data & analytics"
 
 st.write("""
 - 👨‍💻 Currently working on my Master's project in Big Data & Analytics at EAE Business School.
 - ✈️ Former Aviator with experience in Air Traffic & Resource Management.
 - 🤖 Exploring the transition from Aviation to the IT field, focusing on areas I find interesting.
-- ...
 """)
-"  
 
 st.write(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""", unsafe_allow_html=True)
 
@@ -55,39 +53,25 @@ st.write("##")    #
 
 
 # ----- About me section -----
-st.subheader("st.subheader("Skills")
+st.subheader=("Skills")
 
 st.write("""
 - Python
 - Data Analysis
 - Machine Learning
-- ...
 """)
-")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
-st.write("""
-st.subheader("Projects")
 
-st.write("""
-- 🚀 [Project Name 1](link_to_project1): Brief description.
-- 🌐 [Project Name 2](link_to_project2): Brief description.
-- ...
-""")
-
-st.subheader("Education")
+st.subheader=("Education")
 
 st.write("""
 - 📚 Master's in Big Data & Analytics, EAE Business School, Barcelona
 - ✈️ Previous education or certifications
-- ...
+- 📫 How to reach me: 'oussamamdouni@gmail.com' 
+- Linkedin  :https://www.linkedin.com/in/oussamaamdouni/ 
+- Instagram :  That_av_dude 
 """)
 
 
-- 📫 How to reach me: oussamamdouni@gmail.com 
 
-- 🏠 Barcelona
-""")
-
-Linkedin  :https://www.linkedin.com/in/oussamaamdouni/ 
-IG        :  That_av_dude 
