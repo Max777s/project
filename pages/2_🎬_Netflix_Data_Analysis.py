@@ -103,8 +103,9 @@ else:
 
 st.write("##")
 st.header("Avg Duration of Movies by Year")
+movies_df['min_duration'] = movies_df['duration'].astype(str).apply(lambda x: x[:-4])
 
-movies_df['min_duration']=movies_df['duration'].apply(lambda x: x[:-4])
+
 
 movies_f_df = movies_df.loc[movies_df['type'] == 'Movie']
 movies_f_df.loc[:,'min_duration']=movies_f_df['min_duration'].astype(int)
