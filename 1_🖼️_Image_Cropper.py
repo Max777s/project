@@ -6,10 +6,11 @@ import streamlit as st
 import io
 from PIL import Image
 
+name = "Oussama AMDOUNI"
 
 # ----- Page configs -----
 st.set_page_config(
-    page_title="<Your Name> Portfolio",
+    page_title=f"{name}'s Portfolio",
     page_icon="📊",
 )
 
@@ -45,10 +46,9 @@ st.write("#")
 # TODO: Ex. 1.1: Get the minimum and maximum values for the vertical and horizontal ranges, so the size of the img_arr array -----
 
 min_height = 0 
-max_height = None   # TODO: Replace None with the maximum height of the image using np.shape() function
-
+max_height = img_arr.shape[0]   
 min_width = 0
-max_width = None    # TODO: Replace None with the maximum width of the image using np.shape() function   
+max_width = img_arr.shape[1]  
 
 
 # ----- Creating the sliders to receive the user input with the dimensions to crop the image ----- 
@@ -69,8 +69,25 @@ else:
 
 
 # TODO: Ex. 1.3: Crop the image array img_arr using the crop_min_h, crop_max_h, crop_min_w and crop_max_w values -----
+#from development.01_image_cropper import crop_image
 
-crop_arr = None  # TODO: Generate the crop array into a new variable, use NumPy array slicing
+def crop_image(img, h1, h2, w1, w2):
+    crop_img = None
+    if (h1>h2) & (w2>w1):
+        print('I cannot crop the image: The minimum height is larger than maximum height')
+      #  crop_img = None
+    elif (h1<h2) & (w1>w2):
+        print('I cannot crop the image: The minimum width is larger than maximum width')
+       # crop_img = None
+    elif (h1>h2) & (w2<w1):
+        print('I cannot crop the image: Both constraints are violated')
+        #crop_img = None
+    else:
+        crop_img = img[h1:h2, w1:w2, :]
+    return crop_img
+
+
+crop_arr = crop_image(img_arr, crop_min_h, crop_max_h, crop_min_w, crop_max_w)
 
 
 # ----- Displaying the cropped image and creating a download button to download the image -----
