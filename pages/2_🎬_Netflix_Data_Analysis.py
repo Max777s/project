@@ -8,7 +8,7 @@ import streamlit as st
 
 # ----- Page configs -----
 st.set_page_config(
-    page_title="Oussama AMDOUNI Portfolio",
+    page_title="<Oussama AMDOUNI> Portfolio",
     page_icon="📊",
 )
 
@@ -31,7 +31,7 @@ st.divider()
 def load_data():
     data_path = "netflix_titles.csv"
 
-    movies_df = movies_df = pd.read_csv(data_path, index_col = 'show_id')
+    movies_df = pd.read_csv(data_path, index_col='show_id')  # TODO: Ex 2.1: Load the dataset using Pandas, use the data_path variable and set the index column to "show_id"
 
     return movies_df   # a Pandas DataFrame
 
@@ -45,20 +45,28 @@ with st.expander("Check the complete dataset:"):
 
 # ----- Extracting some basic information from the dataset -----
 
-# Ex 2.2: What is the min and max release years?
+# TODO: Ex 2.2: What is the min and max release years?
 min_year = movies_df['release_year'].min()
 max_year = movies_df['release_year'].max()
 
-# Ex 2.3: How many director names are missing values (NaN)?
+# TODO: Ex 2.3: How many director names are missing values (NaN)?
 num_missing_directors = movies_df['director'].isna().sum()
 
-# Ex 2.4: How many different countries are there in the data?
-n_countries = movies_df['country'].explode().nunique()
-# In the notebook, there is another way developed with making a list of lists, flattening it and making it a set
+# TODO: Ex 2.4: How many different countries are there in the data?
 
-# Ex 2.5: How many characters long are on average the title names?
-movies_df['titles_length'] = movies_df['title'].apply(lambda x: len(x))
-avg_title_length = round(movies_df['titles_length'].mean(),2)
+movies_df['country'] = movies_df['country'].fillna('Unknown')
+
+countries_all = movies_df['country'].apply(lambda x: ', '.join(x) if isinstance(x, list) else x)
+
+countries = pd.Series(', '.join(countries_all).split(', ')).unique()
+
+n_countries = countries.size
+
+# TODO: Ex 2.5: How many characters long are on average the title names?
+movies_df['title_length'] = movies_df['title'].apply(lambda x: len(x))
+
+avg_title_length = movies_df['title_length'].mean()
+
 
 # ----- Displaying the extracted information metrics -----
 
@@ -83,9 +91,9 @@ year = cols2[0].number_input("Select a year:", min_year, max_year, 2005)
 
 # TODO: Ex 2.6: For a given year, get the Pandas Series of how many movies and series 
 # combined were made by every country, limit it to the top 10 countries.
-movies_year = movies_df.loc[movies_df['release_year'] == year]
-top_10_countries = movies_year['country'].value_counts(ascending=False).head(10)
+in_year = (movies_df.loc[movies_df['release_year'] == year])['country'].value_counts()
 
+top_10_countries = in_year.head(10)
 
 # print(top_10_countries)
 if top_10_countries is not None:
@@ -103,19 +111,16 @@ else:
 
 st.write("##")
 st.header("Avg Duration of Movies by Year")
-movies_df['min_duration'] = movies_df['duration'].astype(str).apply(lambda x: x[:-4])
 
+# TODO: Ex 2.7: Make a line chart of the average duration of movies (not TV shows) in minutes for every year across all the years. 
+movies_df['clear_duration'] = (movies_df.loc[movies_df['type'] == 'Movie'])['duration'].apply(lambda x: int(x.replace(' min', '')) if not isinstance(x, float) else x  )
 
-
-movies_f_df = movies_df.loc[movies_df['type'] == 'Movie']
-movies_f_df.loc[:,'min_duration']=movies_f_df['min_duration'].astype(int)
-
-movies_avg_duration_per_year = movies_f_df.groupby('release_year')['min_duration'].mean()
+movies_avg_duration_per_year = (movies_df.loc[movies_df['type'] == 'Movie']).groupby(['release_year'])['clear_duration'].mean()
 
 if movies_avg_duration_per_year is not None:
     fig = plt.figure(figsize=(9, 6))
 
-    plt.plot(movies_avg_duration_per_year)
+    movies_avg_duration_per_year.plot.line() # TODO: generate the line plot using plt.plot() and the information from movies_avg_duration_per_year (the vertical axes with the minutes value) and its index (the horizontal axes with the years)
 
     plt.title("Average Duration of Movies Across Years")
 
